@@ -4,12 +4,14 @@
 function CREATE_PREVIEW {
     local path="$(realpath "$1")"
     local path_sha1="$(<<<"$path" sha1sum -)"
-    local cache_image_path="$HOME/.cache/ranger/${path_sha1%% *-}.jpg"
+    local config_directory="${XDG_CONFIG_HOME:-$HOME/.config}"
+    local cache_directory="${XDG_CACHE_HOME:-$HOME/.cache}"
+    local cache_image_path="${cache_directory}/ranger/${path_sha1%% *-}.jpg"
     local text_preview=
     
     # Wrong exit code if declared (local) & assigned at once..
     # https://github.com/ranger/ranger/blob/3f8e7c14103a6570b0e55fbcf84242c86f42a7cb/ranger/core/actions.py#L1187
-    text_preview="$("$HOME/.config/ranger/scope.sh" \
+    text_preview="$("${config_directory}/ranger/scope.sh" \
         "$path" "$COLUMNS" "$LINES" \
         "$cache_image_path" \
         True)"
