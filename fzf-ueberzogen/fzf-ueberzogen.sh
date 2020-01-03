@@ -43,9 +43,11 @@ function STORE_FZF_HEIGHT_IN {
 
     _fzf_height_lines="${fzf_height_text}"
 
-    [[ "${fzf_height_text}" == *"%" ]] && {
+    if [[ "${fzf_height_text}" == *"%" ]]; then
         ((_fzf_height_lines=(terminal_lines * ${fzf_height_text%\%}) / 100))
-    }
+    else
+        ((_fzf_height_lines=_fzf_height_lines > terminal_lines ? terminal_lines :_fzf_height_lines))
+    fi
 
     ((_fzf_height_lines=fzf_min_height > _fzf_height_lines
                         ? fzf_min_height : _fzf_height_lines))
