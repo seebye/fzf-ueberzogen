@@ -129,7 +129,7 @@ function IDENTITY_RECT {
 
 function ADD_PLACEMENT {
     # Usage: ADD_PLACEMENT
-    #           add_command_variable [adjust_geometry_function]
+    #           add_command_variable [adjust_rect_function]
     # references can't be checked.. -v doesn't seem to support associative arrays..
     local terminal_lines= terminal_columns=
     local fzf_height= fzf_offset_y=
