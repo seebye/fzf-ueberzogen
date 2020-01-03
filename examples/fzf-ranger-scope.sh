@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 
-function create_preview {
+function CREATE_PREVIEW {
     local path="$(realpath "$1")"
     local path_sha1="$(<<<"$path" sha1sum -)"
     local cache_image_path="$HOME/.cache/ranger/${path_sha1%% *-}.jpg"
@@ -48,6 +48,6 @@ function create_preview {
 
 
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
-    export -f create_preview
-    exec fzf-ueberzogen.sh --preview 'create_preview {}' "$@"
+    export -f CREATE_PREVIEW
+    exec fzf-ueberzogen.sh --preview 'CREATE_PREVIEW {}' "$@"
 fi
