@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# This is just an example how ueberzug can be used with fzf.
+# fzf-ueberzogen.sh is a wrapper script which allows to use ueberzug with fzf.
 # Copyright (C) 2019  Nico Baeurer
 
 # This program is free software: you can redistribute it and/or modify
