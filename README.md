@@ -1,6 +1,6 @@
 # fzf überzogen
 
-fzf überzogen provides a shell script which allows to use [ueberzug](https://github.com/seebye/ueberzug) with fzf.  
+fzf überzogen provides a shell script which allows to use ueberzug with fzf.  
 
 ## Overview
 
@@ -113,4 +113,4 @@ So if the height option is used an the terminal gets resized a image will likely
 
 ## Examples
 
-Examples can be found [here](https://github.com/seebye/fzf-ueberzogen/tree/master/examples).
+Examples can be found in the examples folder.

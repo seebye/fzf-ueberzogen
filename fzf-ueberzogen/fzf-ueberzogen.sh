@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 # fzf-ueberzogen.sh is a wrapper script which allows to use ueberzug with fzf.
-# Copyright (C) 2019  seebye
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -43,9 +42,11 @@ function STORE_FZF_HEIGHT_IN {
 
     _fzf_height_lines="${fzf_height_text}"
 
-    [[ "${fzf_height_text}" == *"%" ]] && {
+    if [[ "${fzf_height_text}" == *"%" ]]; then
         ((_fzf_height_lines=(terminal_lines * ${fzf_height_text%\%}) / 100))
-    }
+    else
+        ((_fzf_height_lines=_fzf_height_lines > terminal_lines ? terminal_lines :_fzf_height_lines))
+    fi
 
     ((_fzf_height_lines=fzf_min_height > _fzf_height_lines
                         ? fzf_min_height : _fzf_height_lines))
